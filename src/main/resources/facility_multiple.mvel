@@ -1,0 +1,17 @@
+import java.util.*;
+
+def isValid() {
+    List duplicates = new ArrayList();
+    Set codes = new HashSet();
+    for(facility : facilities.getAllFacilities()){
+        if(codes.contains(facility.code)){
+            duplicates.add(facility.code);
+
+        }else{
+            codes.add(facility.code);
+        }
+    }
+    return duplicates;
+}
+
+isValid();

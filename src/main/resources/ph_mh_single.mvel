@@ -1,0 +1,24 @@
+import com.dinesh.test.domain.*;
+
+def isValid() {
+    Facility phFacility = facilities.getById(ph);
+    if(phFacility == nil){
+        return "PH Facility Doesn't exist";
+    }
+    if(phFacility.type != FacilityType.PICKUP_HUB){
+            return "PH Facility is not PICKUP_HUB";
+    }
+
+
+    Facility mhFacility = facilities.getById(mh);
+    if(mhFacility == nil){
+        return "MH Facility Doesn't exist";
+    }
+    if(mhFacility.type != FacilityType.MOTHER_HUB){
+                return "MH Facility is not MOTHER_HUB";
+    }
+
+    return "Valid";
+}
+
+isValid();

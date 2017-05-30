@@ -1,0 +1,5 @@
+def isValid() {
+    return facility.id !=nil && facility.name!=nil && facility.circle != nil && facility.cluster!=nil && facility.zone != nil && facility.code != nil && facility.pincode != nil;
+}
+
+isValid();

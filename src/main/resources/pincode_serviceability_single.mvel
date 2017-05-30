@@ -1,0 +1,17 @@
+import com.dinesh.test.domain.*;
+
+def isValid() {
+    Facility facility = facilities.getById(hub);
+    if(facility == nil){
+        return "Facility Doesn't exist";
+    }
+
+    if(FacilityType.DELIVERY_HUB == facility.type && task == BusinessTask.RECEIVE_TO_DELIVER) {
+        return "Valid";
+    } else if(FacilityType.PICKUP_HUB == facility.type && task == BusinessTask.PICK_FROM_SELLER) {
+        return "Valid";
+    }
+    return "Invalid FacilityType for BusinessTask";
+}
+
+isValid();

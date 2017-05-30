@@ -1,0 +1,29 @@
+import com.dinesh.test.domain.*;
+
+def isValid() {
+    Long phId = pincodeServiceability.getServiceability(sourcePincode,businessTask);
+    if(phId == nil) {
+        return "No PH Mapped"
+    }
+
+    Facility ph = facilities.getById(phId);
+    if(ph == nil){
+       return "PH Facility Doesn't exist";
+    }
+    Long mhId = phMhMapping.getMHForPH(phId);
+
+    if(mhId == nil) {
+        return "No MH Mapped"
+    }
+
+    Facility mh = facilities.getById(mhId);
+    if(mh == nil){
+        return "MH Facility Doesn't exist";
+    }
+    if(mh.pincode != destinationPincode){
+        return "Serviceability Destination different as MH Pincode"
+    }
+    return "Serviceable";
+}
+
+isValid();
